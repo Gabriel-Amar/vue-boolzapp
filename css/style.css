@@ -22,3 +22,16 @@
     outline: none !important;
     box-shadow: none;
 }
+.foto{
+    width: 40px;
+    border-radius: 50%;
+}
+.contacts-container{
+    background-color: #ffffff;
+}
+.bold{
+    font-weight: 500;
+}
+.font{
+    font-size: 15px;
+}
