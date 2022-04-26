@@ -15,21 +15,22 @@
 <div id="app">
     <div class="background1">
         <div class="container">
-            <div class="row py-5">
+            <div class="row py-5 g-0 ">
+                <!-- COL 1 -->
                 <div class="col col-lg-5">
                     <!-- HEADER PROFILE -->
                     <header>
                         <div class="header-background-profile">
                             <nav class="navbar navbar-light">
                                 <div class="container-fluid">
-                                    <a class="navbar-brand">
+                                    <a class="navbar-brand px-2">
                                         <img src="img/avatar_io.jpg" alt="profile photo" width="40" height="40" class="rounded-circle d-inline-block align-text-center img-fluid">
                                         Gabriel
                                     </a>
-                                    <div class="icons d-flex gap-3 text-secondary">
+                                    <div class="icons d-flex gap-3 px-4 text-secondary">
                                         <i class="fa-solid fa-circle-notch"></i>
                                         <i class="fa-solid fa-message"></i>
-                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical "></i>
                                     </div>
                                 </div>
                             </nav>
@@ -40,8 +41,8 @@
                         <div class="header-background-notification">
                             <nav class="navbar navbar-light ">
                                 <div class="container-fluid">
-                                    <a class="navbar-brand">
-                                        <i class="fa-solid fa-bell-slash"></i>
+                                    <a class="navbar-brand px-3">
+                                        <i class="fa-solid fa-bell-slash "></i>
                                         <span>Ricevi notifiche di nuovi messaggi</span>
                                     </a>
                                 </div>
@@ -53,7 +54,8 @@
                         <input type="text" class="form-control rounded-0 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     </div>
                     <!-- CONTACTS LIST -->
-                    <div class="contacts-container p-2 pb-3" v-for="(contatto, index) in contacts">
+                    <div class="my-overflow">
+                    <div class="contacts-container px-3 py-2 pb-3" v-for="(contatto, index) in contacts">
                         <img :src="'./img/avatar' + contatto.avatar + '.jpg'" class="foto float-start img-fluid me-1" alt="">
                         <span class="bold">
                             {{contatto.name}}
@@ -61,15 +63,44 @@
                         <span class="d-flex align-self-center text-secondary font">
                             Prova messaggio
                         </span>
-                    </div>
-                    
-                    
-                    
-
-
-
+                    </div></div>
                 </div>
-                <div class="col">Col 2</div>
+                <!-- COL 2 -->
+                <div class="col">
+                    <!-- HEADER CONTACT -->
+                    <header>
+                        <div class="header-background-profile">
+                            <nav class="navbar navbar-light">
+                                <div class="container-fluid">
+                                    <a class="navbar-brand">
+                                        <img src="img/avatar_io.jpg" alt="profile photo" width="40" height="40" class=" rounded-circle d-inline-block align-text-center img-fluid">
+                                        <span class="bold">
+                                            Michele
+                                        </span>
+                                        <span class=" align-self-center text-secondary font">
+                                            Prova messaggio
+                                        </span>
+                                    </a>
+                                    <div class="icons d-flex gap-3 text-secondary px-4">
+                                        <i class="fa-solid fa-magnifying-glass align-text-middle"></i>
+                                        <i class="fa-solid fa-link"></i>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>    
+                    </header>
+                    <!-- TEXT AREA -->
+                    <div class="background3">
+                        
+                    </div>
+                    <!-- INPUT AREA -->
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fa-regular fa-face-laugh"></i></span>
+                        <input type="text" class="form-control" aria-label="" placeholder="Scrivi un messaggio">
+                        <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -35,3 +35,11 @@
 .font{
     font-size: 15px;
 }
+.my-overflow{
+    overflow-y: auto;
+    height: 33vw;
+}
+.background3{
+    background-image: url(../img/mine.jpg);
+    height: 560px;
+}
