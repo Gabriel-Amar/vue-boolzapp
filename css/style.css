@@ -1,0 +1,24 @@
+#app{
+    height: 100vh;
+}
+.background1{
+    background: rgb(0,167,151);
+    background: linear-gradient(0deg, rgba(218,219,211) 80%, rgba(0,167,151) 80%);
+    height: 100%;
+}
+.header-background-notification{
+    background-color: #8edafc;
+}
+.header-background-profile{
+    background-color: #eaeaea;
+}
+.fa-bell-slash{
+    color: #8edafc;
+    background-color: #f2fbff;
+    border-radius: 50%;
+    padding: 10px;
+}
+.form-control:focus,.form-control:active {
+    outline: none !important;
+    box-shadow: none;
+}
