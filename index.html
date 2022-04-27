@@ -15,9 +15,9 @@
 <div id="app">
     <div class="background1">
         <div class="container">
-            <div class="row py-5 g-0 ">
+            <div class="row py-5 g-0 align-items-stretch">
                 <!-- COL 1 -->
-                <div class="col col-lg-5">
+                <div class="col col-lg-4">
                     <!-- HEADER PROFILE -->
                     <header>
                         <div class="header-background-profile">
@@ -51,22 +51,24 @@
                     <!-- SEARCH BAR -->
                     <div class="input-group">
                         <span class="input-group-text rounded-0 bg-white border-0" id="basic-addon1"><i class="fa-solid fa-magnifying-glass align-text-middle"></i></span>
-                        <input type="text" class="form-control rounded-0 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control rounded-0 border-0" placeholder="Cerca o inizia una nuova chat" aria-label="Recipient's username" v-model="searchText" @keyup="filterContact()" aria-describedby="basic-addon2">
                     </div>
                     <!-- CONTACTS LIST -->
                     <div class="my-overflow">
-                    <div class="contacts-container px-3 py-2 pb-3" v-for="(contatto, index) in contacts">
-                        <img :src="'./img/avatar' + contatto.avatar + '.jpg'" class="foto float-start img-fluid me-1" alt="">
-                        <span class="bold">
-                            {{contatto.name}}
-                        </span>
-                        <span class="d-flex align-self-center text-secondary font">
-                            Prova messaggio
-                        </span>
+                    <div class="contacts-container px-3 py-2 pb-3" :class="{'active': index === activeContactIndex}" v-for="(contatto, index) in contacts" @click="viewChat(index)">
+                        <div v-if="contatto.visible">
+                            <img :src="'./img/avatar' + contatto.avatar + '.jpg'" class="foto float-start img-fluid me-1" :alt="contatto.name">
+                            <span class="bold">
+                                {{contatto.name}}
+                            </span>
+                            <span class="d-flex align-self-center text-secondary font">
+                                Prova messaggio
+                            </span>
+                        </div>
                     </div></div>
                 </div>
                 <!-- COL 2 -->
-                <div class="col">
+                <div class="col col-lg-8">
                     <!-- HEADER CONTACT -->
                     <header>
                         <div class="header-background-profile">
@@ -78,7 +80,7 @@
                                             Michele
                                         </span>
                                         <span class=" align-self-center text-secondary font">
-                                            Prova messaggio
+                                            Ultimo accesso oggi alle 12.00
                                         </span>
                                     </a>
                                     <div class="icons d-flex gap-3 text-secondary px-4">
@@ -92,13 +94,17 @@
                     </header>
                     <!-- TEXT AREA -->
                     <div class="background3">
-                        
+                        <div class="message-text" v-for="(item, index) in contacts [activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">
+                            <div>{{item.message}}</div>
+                        </div>
                     </div>
                     <!-- INPUT AREA -->
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="fa-regular fa-face-laugh"></i></span>
-                        <input type="text" class="form-control" aria-label="" placeholder="Scrivi un messaggio">
-                        <span class="input-group-text"><i class="fa-solid fa-microphone"></i></span>
+                    <div class="input-area">
+                        <div class="input-group rounded-0 border-0">
+                            <span class="input-group-text rounded-0 border-0"><i class="fa-regular fa-face-laugh"></i></span>
+                            <input type="text" class="form-control rounded-0 border-0" v-model="message" @keyup.enter="sendMessage()" aria-label="" placeholder="Scrivi un messaggio">
+                            <span class="input-group-text rounded-0 border-0"><i class="fa-solid fa-microphone"></i></s>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -141,10 +141,58 @@ const app = new Vue({
                     }
                 ],
             },
-        ]
-        
+            {
+                name: 'Alessandro B.',
+                avatar: '_4',
+                visible: true,
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        message: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'Si, ma preferirei andare al cinema',
+                        status: 'received'
+                    }
+                ],
+            },
+        ],
+        activeContactIndex: 0,
+        searchText: "",
+        message: "",
     },
     methods:{
-
+        viewChat(index){
+            this.activeContactIndex = index;
+    },
+    sendMessage(){
+        if(this.message === ' ') return;
+        const newMessage = {
+        date: '10/01/2020 15:50:00',
+        message: this.message,
+        status: 'sent'
+        };
+        const receivedMessage = {
+        date: '10/01/2020 15:50:00',
+        message: "Ok",
+        status: 'received'
+        }
+        this.contacts[this.activeContactIndex].messages.push(newMessage);
+        this.message = "";
+        setTimeout(()=>{
+            this.contacts[this.activeContactIndex].messages.push(receivedMessage);
+        },2000)
+    },
+    filterContact(){
+        this.contacts.forEach((contact)=>{
+            if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())){
+                contact.visible = true;
+            }else{
+                contact.visible = false;
+            }
+        })
     }
+}   
 })
