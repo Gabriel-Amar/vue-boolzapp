@@ -170,12 +170,12 @@ const app = new Vue({
     sendMessage(){
         if(this.message === ' ') return;
         const newMessage = {
-        date: '10/01/2020 15:50:00',
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: this.message,
         status: 'sent'
         };
         const receivedMessage = {
-        date: '10/01/2020 15:50:00',
+        date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: "Ok",
         status: 'received'
         }

@@ -68,3 +68,8 @@
     background-color: #c9c9c9;
     cursor: default;
 }
+.date{
+    font-size: 10px;
+    color: gray;
+    padding-top: 6px;
+}

@@ -9,6 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
     <title>Whatsapp</title>
 </head>
 <body>
@@ -75,9 +76,9 @@
                             <nav class="navbar navbar-light">
                                 <div class="container-fluid">
                                     <a class="navbar-brand">
-                                        <img src="img/avatar_io.jpg" alt="profile photo" width="40" height="40" class=" rounded-circle d-inline-block align-text-center img-fluid">
+                                        <img :src="'img/avatar' + contacts[activeContactIndex].avatar + '.jpg'" alt="profile photo" width="40" height="40" class=" rounded-circle d-inline-block align-text-center img-fluid">
                                         <span class="bold">
-                                            Michele
+                                            {{contacts[activeContactIndex].name}}
                                         </span>
                                         <span class=" align-self-center text-secondary font">
                                             Ultimo accesso oggi alle 12.00
@@ -94,8 +95,9 @@
                     </header>
                     <!-- TEXT AREA -->
                     <div class="background3">
-                        <div class="message-text" v-for="(item, index) in contacts [activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">
-                            <div>{{item.message}}</div>
+                        <div class="message-text d-flex justify-content-between" v-for="(item, index) in contacts [activeContactIndex].messages" :class="item.status === 'sent' ? 'sent' : 'received'">
+                            <span>{{item.message}}</span>
+                            <span class="date">{{item.date}}</span>
                         </div>
                     </div>
                     <!-- INPUT AREA -->
