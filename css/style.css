@@ -6,8 +6,11 @@
     background: linear-gradient(0deg, rgba(218,219,211) 80%, rgba(0,167,151) 80%);
     height: 100%;
 }
-.header-background-notification{
+.notifica{
     background-color: #8edafc;
+}
+.row{
+    padding-top: 95px !important;
 }
 .header-background-profile{
     background-color: #eaeaea;
@@ -29,6 +32,17 @@
 .contacts-container{
     background-color: #ffffff;
     cursor: pointer;
+    position: relative;
+}
+.contacts-container::before {
+    content: "";
+    position: absolute;
+    left: 75px;
+    bottom: 0;
+    height: 1px;
+    width: 80%;
+    border-bottom: 1px solid rgb(199, 199, 199);
+    
 }
 .contacts-container:hover{
     background-color: #ebebeb;
@@ -70,6 +84,17 @@
 }
 .date{
     font-size: 10px;
-    color: gray;
+    color: #cbcbcb;
     padding-top: 6px;
+}
+i{
+    cursor: pointer;
+}
+.gray{
+    color:  #858585;
+    white-space: nowrap; 
+    width: 214px; 
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }

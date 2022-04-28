@@ -168,7 +168,7 @@ const app = new Vue({
             this.activeContactIndex = index;
     },
     sendMessage(){
-        if(this.message === ' ') return;
+        if(this.message === '' || this.message === ' ') return;
         const newMessage = {
         date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
         message: this.message,
@@ -193,6 +193,8 @@ const app = new Vue({
                 contact.visible = false;
             }
         })
-    }
+    },
+    
+    
 }   
 })
