@@ -185,16 +185,17 @@ const app = new Vue({
             this.contacts[this.activeContactIndex].messages.push(receivedMessage);
         },2000)
     },
+},
+computed:{
     filterContact(){
-        this.contacts.forEach((contact)=>{
+        return this.contacts.filter((contact)=>{
             if(contact.name.toLowerCase().includes(this.searchText.toLowerCase())){
-                contact.visible = true;
+                return true;
             }else{
-                contact.visible = false;
+                return false;
             }
         })
     },
     
-    
-}   
+}
 })

@@ -56,7 +56,7 @@
                     </div>
                     <!-- CONTACTS LIST -->
                     <div class="my-overflow">
-                    <div class="contacts-container px-3 py-2 pb-3" :class="{'active': index === activeContactIndex}" v-for="(contatto, index) in contacts" @click="viewChat(index)">
+                    <div class="contacts-container px-3 py-2 pb-3" :class="{'active': index === activeContactIndex}" v-for="(contatto, index) in filterContact" @click="viewChat(index)">
                         <div v-if="contatto.visible">
                             <img :src="'./img/avatar' + contatto.avatar + '.jpg'" class="foto float-start img-fluid me-1" :alt="contatto.name">
                             <span class="bold">
