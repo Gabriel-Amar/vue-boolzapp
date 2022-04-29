@@ -81,7 +81,7 @@
                                             {{contacts[activeContactIndex].name}}
                                         </span>
                                         <span class=" align-self-center text-secondary font">
-                                            Ultimo accesso oggi alle 12.00
+                                            Ultimo accesso oggi alle {{contacts[activeContactIndex].messages[contacts[activeContactIndex].messages.length - 1].date.slice(-8)}}
                                         </span>
                                     </a>
                                     <div class="icons d-flex gap-3 text-secondary px-4">
